@@ -11,7 +11,7 @@ Convenient for myself
 You can install the development version of BioUncle like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+devtools::install_github("zhengshimao/BioUncle")
 ```
 
 ## Example
@@ -21,5 +21,6 @@ This is a basic example which shows you how to solve a common problem:
 ``` r
 library(BioUncle)
 ## basic example code
+
 ```
 

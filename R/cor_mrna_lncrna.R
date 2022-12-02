@@ -2,8 +2,8 @@
 #'
 #' cor_mrna_lncrna(): Calculate the correlation between the two expression matrix.
 #'
-#' @param filter_log2_mrna Expression matrix of mRNA transformed by log2.
-#' @param filter_log2_lncrna Expression matrix of lncRNA transformed by log2.
+#' @param filter_log2_mrna Expression matrix of mRNA transformed by log2. The colnames are sample names and the rownames are gene names.
+#' @param filter_log2_lncrna Expression matrix of lncRNA transformed by log2.The colnames are sample names and the rownames are gene names.
 #' @param cor_method The method of correlation. See \link[stats]{cor}.
 #' @param padj_method Correction method. See \link[stats]{p.adjust}
 #' @param digits See \link[base]{round}.
