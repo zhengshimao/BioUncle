@@ -1,0 +1,26 @@
+Package: BioUncle
+Title: Develop for my own use and convenience
+Version: 0.0.1
+Authors@R: 
+    person("Shimao", "Zheng", email = "zhengshimao007@163.com", role = c("aut", "cre"))
+Maintainer: Shimao Zheng <zhengshimao007@163.com>
+Description: Develop an R package 'BioUncle' for graduate thesis to facilitate the 
+    processing of data and drawing.
+Depends:
+    R (>= 4.0.0)
+Imports: 
+    magrittr,
+    dplyr,
+    stats,
+    WGCNA,
+    readr,
+    tidyr,
+    stringr,
+    vroom,
+    tibble,
+    clusterProfiler
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+License: GPL (>= 3)
+LazyData: true
