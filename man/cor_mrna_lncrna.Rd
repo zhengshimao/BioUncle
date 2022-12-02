@@ -15,9 +15,9 @@ cor_mrna_lncrna(
 )
 }
 \arguments{
-\item{filter_log2_mrna}{Expression matrix of mRNA transformed by log2.}
+\item{filter_log2_mrna}{Expression matrix of mRNA transformed by log2. The colnames are sample names and the rownames are gene names.}
 
-\item{filter_log2_lncrna}{Expression matrix of lncRNA transformed by log2.}
+\item{filter_log2_lncrna}{Expression matrix of lncRNA transformed by log2.The colnames are sample names and the rownames are gene names.}
 
 \item{cor_method}{The method of correlation. See \link[stats]{cor}.}
 
