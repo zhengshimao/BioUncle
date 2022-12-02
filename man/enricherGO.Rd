@@ -23,7 +23,7 @@ enricherGO(
 
 \item{go2ont}{a data frame with "go_id’ and "Ontology". If \code{NULL}, it will be downloaded every time. It is recommended to save the \code{go2ont} with the \code{get_GO2Ontology_table()} function first.}
 
-\item{ont}{GO Ontology: "BP", "MF", "CC", "ALL".}
+\item{ont}{GO Ontology: "BP", "MF", "CC", "ALL". See \link[clusterProfiler]{enrichGO}.}
 
 \item{pvalueCutoff}{See \link[clusterProfiler]{enricher}.}
 
