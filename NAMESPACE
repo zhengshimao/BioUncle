@@ -3,6 +3,7 @@
 export("%>%")
 export(cor_mrna_lncrna)
 export(enricherGO)
+export(get_one2mul)
 export(write_bio_fasta)
 export(write_cor_p)
 importFrom(magrittr,"%>%")

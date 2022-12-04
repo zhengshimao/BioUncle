@@ -27,7 +27,7 @@ write_bio_fasta(
 A file in fasta format.
 }
 \description{
-'write_bio_fasta()': write a data frame to a file in fasta format.
+\code{write_bio_fasta()}: write a data frame to a file in fasta format.
 }
 \examples{
 \dontrun{

@@ -1,6 +1,6 @@
 #' Write a data frame to a file in fasta format.
 #'
-#' 'write_bio_fasta()': write a data frame to a file in fasta format.
+#' `write_bio_fasta()`: write a data frame to a file in fasta format.
 #'
 #' @param data A data frame with 2 or 3 columns including `id`, `sequence` and `description`,separately.
 #' @param file A path to a file of fasta sequence.
