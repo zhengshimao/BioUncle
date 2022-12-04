@@ -15,7 +15,7 @@ get_one2mul(df, sep = "/")
 A data frame with two character vectors.
 }
 \description{
-Convert to single cell according to the same content.
+A function opposite to \link[tidyr]{separate_rows}.
 }
 \examples{
 \dontrun{

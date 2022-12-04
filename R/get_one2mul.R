@@ -1,5 +1,7 @@
 #' Convert to single cell according to the same content.
 #'
+#' A function opposite to \link[tidyr]{separate_rows}.
+#'
 #' @param df A data frame with two columns.
 #' @param sep A separator character.
 #'
