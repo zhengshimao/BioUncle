@@ -4,7 +4,7 @@
 #'
 #' @title enricherGO
 #' @param gene See \link[clusterProfiler]{enricher}.
-#' @param go2ont a data frame with "go_id’ and "Ontology". If `NULL`, it will be downloaded every time. It is recommended to save the `go2ont` with the `get_GO2Ontology_table()` function first.
+#' @param go2ont a data frame with "go_id" and "Ontology". If `NULL`, it will be downloaded every time. It is recommended to save the `go2ont` with the `get_GO2Ontology_table()` function first.
 #' @param ont GO Ontology: "BP", "MF", "CC", "ALL". See \link[clusterProfiler]{enrichGO}.
 #' @param pvalueCutoff See \link[clusterProfiler]{enricher}.
 #' @param qvalueCutoff See \link[clusterProfiler]{enricher}.
