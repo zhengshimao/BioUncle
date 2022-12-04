@@ -4,12 +4,14 @@
 \alias{get_one2mul}
 \title{Convert to single cell according to the same content.}
 \usage{
-get_one2mul(df, sep = "/")
+get_one2mul(df, sep = "/", rename = NULL)
 }
 \arguments{
 \item{df}{A data frame with two columns.}
 
 \item{sep}{A separator character.}
+
+\item{rename}{A vector of new column names of length 2.}
 }
 \value{
 A data frame with two character vectors.
@@ -19,10 +21,12 @@ A function opposite to \link[tidyr]{separate_rows}.
 }
 \examples{
 \dontrun{
+library(dplyr)
+
 df <- iris \%>\% select(5,3)
 str(df)
-new_df <- get_one2mul(df)
 
+new_df <- get_one2mul(df)
 str(new_df)
 }
 }
