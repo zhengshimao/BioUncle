@@ -43,6 +43,7 @@ enricherGO <- function(gene,
 
     message("GO2Ontology: Ready!")
   }
+
   ont <- stringr::str_to_upper(ont)
   ont <- match.arg(ont, c("BP", "MF", "CC", "ALL"))
 
@@ -65,6 +66,7 @@ enricherGO <- function(gene,
   }else{
     go_result@ontology <- ont
   }
+  # go_result@ontology <- "GOALL"
 
   # change the order of colnames
   go_result@result <- go_result@result %>% dplyr::left_join(go2ont,by = c("ID" = "go_id")) %>% dplyr::select(10,1,2,9,3:8) %>% dplyr::arrange(pvalue) %>% tidyr::drop_na()
