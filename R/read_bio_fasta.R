@@ -8,7 +8,7 @@
 #' @export
 read_bio_fasta <- function(fasta
                            ){
-  fa <- vroom::vroom_lines(file = fasta)
+  fa <- vroom::vroom_lines(file = fasta, skip_empty_rows = TRUE)
 
   df_fa <- data.frame(name = character(0), seq = character(0))
 
@@ -21,7 +21,7 @@ read_bio_fasta <- function(fasta
       df_fa[n,1] <- fa[i] %>% stringr::str_remove(pattern = ">")
       n = n + 1
 
-    }else if(fa[i] != ""){  # Not NA
+    }else{  # Not NA
 
       if(is.na(df_fa[n-1,2])){
         df_fa[n-1,2] <- fa[i]
