@@ -7,7 +7,27 @@
 #' @return A data frame.
 #' @export
 read_bio_fasta <- function(fasta
-                           ){
+){
+  fa <- vroom::vroom_lines(file = fasta, skip_empty_rows = TRUE)
+  # a vector of fasta id
+  id <- fa[stringr::str_detect(fa, "^>")] %>% stringr::str_remove(pattern = "^>")
+  # a vector of fasta sequence
+  seq <- stringr::str_replace_all(fa,pattern = "^>.*",replacement = ">") %>% paste0(collapse = "") %>% stringr::str_split(pattern = ">")
+  seq <- seq[[1]][-1]
+
+  return(data.frame(id = id, sequence = seq))
+}
+
+#' Create a data frame from a fasta file.
+#'
+#' Reads a file in fasta format and creates a data frame from it.
+#'
+#' @param fasta A fasta file.
+#'
+#' @return A data frame.
+#' @export
+read_bio_fasta2 <- function(fasta
+){
   fa <- vroom::vroom_lines(file = fasta, skip_empty_rows = TRUE)
 
   df_fa <- data.frame(name = character(0), seq = character(0))
@@ -35,3 +55,4 @@ read_bio_fasta <- function(fasta
   return(df_fa)
 
 }
+
