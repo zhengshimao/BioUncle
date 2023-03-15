@@ -1,6 +1,6 @@
 Package: BioUncle
 Title: Develop for my own use and convenience
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person("Shimao", "Zheng", email = "zhengshimao007@163.com", role = c("aut", "cre"))
 Maintainer: Shimao Zheng <zhengshimao007@163.com>

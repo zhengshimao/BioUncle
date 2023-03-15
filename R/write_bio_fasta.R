@@ -4,7 +4,7 @@
 #'
 #' @param data A data frame with 2 or 3 columns including `id`, `sequence` and `description`,separately.
 #' @param file A path to a file of fasta sequence.
-#' @param width An integer, (default `60`) numbers of bases of each line in the file.
+#' @param width An integer, (default `60`) number of bases of each line in the file.
 #' @param append see \link[readr]{write_lines}. If `FALSE`, will overwrite existing file. If `TRUE`, will append to existing file. In both cases, if the file does not exist a new file is created.
 #' @param num_threads see \link[readr]{write_lines}. The number of processing threads to use for initial parsing and lazy reading of data. If your data contains newlines within fields the parser should automatically detect this and fall back to using one thread only. However if you know your file has newlines within quoted fields it is safest to set `num_threads = 1` explicitly.
 #'
