@@ -17,7 +17,7 @@ write_bio_fasta(
 
 \item{file}{A path to a file of fasta sequence.}
 
-\item{width}{An integer, (default \code{60}) numbers of bases of each line in the file.}
+\item{width}{An integer, (default \code{60}) number of bases of each line in the file.}
 
 \item{append}{see \link[readr]{write_lines}. If \code{FALSE}, will overwrite existing file. If \code{TRUE}, will append to existing file. In both cases, if the file does not exist a new file is created.}
 
