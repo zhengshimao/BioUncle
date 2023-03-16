@@ -56,6 +56,19 @@ read_EnsemblFasta <- function(fasta){
     stringr::str_remove(pattern = "gene_symbol:") %>%
     stringr::str_remove(pattern = " ")
 
+  position <- fasta$id %>% stringr::str_remove(pattern = ".*? .*? ") %>%
+    stringr::str_remove(pattern = " .*") %>%
+    stringr::str_remove(pattern = ".*?:.*?:")
+
+  chr <- position %>% stringr::str_extract(pattern = ".*?:") %>%
+    stringr::str_remove(pattern = ":")
+  start <- position %>% stringr::str_extract(pattern = ".*?:.*?:") %>%
+    stringr::str_remove(pattern = ".*?:") %>%
+    stringr::str_remove(pattern = ":$")
+  end <- position %>% stringr::str_remove(pattern = ".*?:.*?:") %>%
+    stringr::str_remove(pattern = ":.*")
+  strand <- position %>% stringr::str_remove(pattern = ".*:")
+
   gene_id <- fasta$id %>%
     stringr::str_extract(pattern = "gene:.*? ") %>%
     stringr::str_remove(pattern = "gene:") %>%
@@ -74,20 +87,20 @@ read_EnsemblFasta <- function(fasta){
   if(seq_char == "pep"){
 
     if(stringr::str_detect(two_line[1], pattern = "gene_symbol:")){
-      df_fasta <- data.frame(translation_id, gene_id,gene_symbol,transcript_id, transcript_biotype, description, sequence = fasta$sequence) %>%
+      df_fasta <- data.frame(translation_id, gene_id,gene_symbol,transcript_id,chr, start, end, strand, transcript_biotype, description, sequence = fasta$sequence) %>%
         dplyr::mutate(len = stringr::str_length(sequence))
     }else{
-      df_fasta <- data.frame(translation_id, gene_id,transcript_id, transcript_biotype, description, sequence = fasta$sequence) %>%
+      df_fasta <- data.frame(translation_id, gene_id,transcript_id,chr, start, end, strand, transcript_biotype, description, sequence = fasta$sequence) %>%
         dplyr::mutate(len = stringr::str_length(sequence))
     }
 
   }else{
 
     if(stringr::str_detect(two_line[1], pattern = "gene_symbol:")){
-      df_fasta <- data.frame(transcript_id, gene_id,gene_symbol,transcript_biotype, description, sequence = fasta$sequence) %>%
+      df_fasta <- data.frame(transcript_id, chr, start, end, strand, gene_id,gene_symbol,transcript_biotype, description, sequence = fasta$sequence) %>%
         dplyr::mutate(len = stringr::str_length(sequence))
     }else{
-      df_fasta <- data.frame(transcript_id, gene_id,transcript_biotype, description, sequence = fasta$sequence) %>%
+      df_fasta <- data.frame(transcript_id, chr, start, end, strand, gene_id,transcript_biotype, description, sequence = fasta$sequence) %>%
         dplyr::mutate(len = stringr::str_length(sequence))
     }
 
@@ -105,7 +118,7 @@ read_EnsemblFasta <- function(fasta){
 #' @param source A reminder for you to use the Ensembl sequence.
 #' @param longest_fa Write the longest fasta file. Files ending in .gz, .bz2, .xz, or .zip will be automatically compressed.
 #' if `NULL`, it would be ignored.
-#' @param seq_id Type of fasta IDs (default `gene_id`). "gene_id", "translation_id", "transcript_id".
+#' @param seq_id Type of fasta IDs (default `gene_id`). `gene_id`, `translation_id`, `transcript_id`.
 #' @param width An integer, (default `60`) number of bases of each line in the file.
 #' @param longest_info Write the information of the longest fasta file. Files ending in .gz, .bz2, .xz, or .zip will be automatically compressed.
 #' if `NULL`, it would be ignored.
@@ -114,10 +127,10 @@ read_EnsemblFasta <- function(fasta){
 #' @export
 get_LongestEnsemblFasta <- function(fasta,
                                     source = "Ensembl",
-                                    longest_fa,
+                                    longest_fa = NULL,
                                     seq_id = "gene_id",
                                     width = 60,
-                                    longest_info){
+                                    longest_info = NULL){
   # read fasta file from Ensembl cDNA or pep
   df_fasta <- read_EnsemblFasta(fasta = fasta)
   # get longest pep or cDNA

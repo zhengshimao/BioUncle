@@ -7,10 +7,10 @@
 get_LongestEnsemblFasta(
   fasta,
   source = "Ensembl",
-  longest_fa,
+  longest_fa = NULL,
   seq_id = "gene_id",
   width = 60,
-  longest_info
+  longest_info = NULL
 )
 }
 \arguments{
@@ -21,7 +21,7 @@ get_LongestEnsemblFasta(
 \item{longest_fa}{Write the longest fasta file. Files ending in .gz, .bz2, .xz, or .zip will be automatically compressed.
 if \code{NULL}, it would be ignored.}
 
-\item{seq_id}{Type of fasta IDs (default \code{gene_id}). "gene_id", "translation_id", "transcript_id".}
+\item{seq_id}{Type of fasta IDs (default \code{gene_id}). \code{gene_id}, \code{translation_id}, \code{transcript_id}.}
 
 \item{width}{An integer, (default \code{60}) number of bases of each line in the file.}
 
