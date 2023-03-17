@@ -136,7 +136,7 @@ get_LongestEnsemblFasta <- function(fasta,
   # get longest pep or cDNA
   message("Exacting longest fasta...")
   info_longest <- df_fasta %>% dplyr::group_by(gene_id) %>%
-    dplyr::arrange(len, .by_group = T) %>%
+    dplyr::arrange(dplyr::desc(len), .by_group = T) %>%
     dplyr::slice_head(n = 1) %>%
     dplyr::ungroup()
 
@@ -174,12 +174,8 @@ get_LongestEnsemblFasta <- function(fasta,
 write_LongestEnsemblFasta <- function(list_longest,
                                       longest_fa,
                                       width = 60,
-                                      longest_info
-){
+                                      longest_info){
   write_bio_fasta(longest_list[["fa_longest"]], file = longest_fa, width = width, append = F)
   vroom::vroom_write(longest_list[["info_longest"]], file = longest_info,
                      delim = "\t", eol = "\n", quote = "none")
 }
-
-
-
