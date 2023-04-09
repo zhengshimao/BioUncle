@@ -3,14 +3,19 @@
 #' Reads a file in fasta format and creates a data frame from it.
 #'
 #' @param fasta A fasta file.
+#' @param simplified_ids A logical value(default:`FALSE`). `TRUE` for simplified ids of fasta sequence with characters between ‘>’ and first space, and `FALSE` for not simplified its ids.
 #'
 #' @return A data frame.
 #' @export
-read_bio_fasta <- function(fasta
+read_bio_fasta <- function(fasta,
+                           simplified_ids = FALSE
 ){
-  fa <- vroom::vroom_lines(file = fasta, skip_empty_rows = TRUE)
+  fa <- vroom::vroom_lines(file = fasta, skip_empty_rows = TRUE, num_threads = 1)
   # a vector of fasta id
   id <- fa[stringr::str_detect(fa, "^>")] %>% stringr::str_remove(pattern = "^>")
+
+  if(simplified_ids) id <- id %>% stringr::str_remove(pattern = " .*") # If the condition is TRUE, simplify ids of fasta sequence.
+
   # a vector of fasta sequence
   seq <- stringr::str_replace_all(fa,pattern = "^>.*",replacement = ">") %>% paste0(collapse = "") %>% stringr::str_split(pattern = ">")
   seq <- seq[[1]][-1]
