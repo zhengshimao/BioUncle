@@ -3,6 +3,7 @@
 export("%>%")
 export(cor_mrna_lncrna)
 export(enricherGO)
+export(fpkm2tpm)
 export(get_LongestEnsemblFasta)
 export(get_one2mul)
 export(read_EnsemblFasta)

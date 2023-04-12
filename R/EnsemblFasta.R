@@ -5,7 +5,7 @@
 #' @title read_EnsemblFasta
 #' @param fasta A fasta file from Ensembl, such as cDNA, pep, ncRNA.
 #'
-#' @return A data frame
+#' @return A data frame.
 #' @export
 read_EnsemblFasta <- function(fasta){
   # 1.  check the file

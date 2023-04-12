@@ -10,7 +10,7 @@ read_EnsemblFasta(fasta)
 \item{fasta}{A fasta file from Ensembl, such as cDNA, pep, ncRNA.}
 }
 \value{
-A data frame
+A data frame.
 }
 \description{
 Read fasta file from Ensembl and get its information.
