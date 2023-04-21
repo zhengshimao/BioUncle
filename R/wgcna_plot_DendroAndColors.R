@@ -28,7 +28,7 @@
 #' @importFrom ggtree gheatmap
 #' @importFrom ggtree ggtree
 #' @importFrom ggplot2 scale_fill_identity
-#' @import ggh4x
+#' @importFrom ggh4x guide_axis_truncated
 #' @export
 wgcna_plot_DendroAndColors <- function(x,
                                        # abline
