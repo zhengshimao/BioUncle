@@ -55,7 +55,8 @@ wgcna_plot_DendroAndColors <- function(x,
           text = element_text(family = "serif", face = "bold"),
           plot.title = element_text(hjust = 0.5))+
     # scale_y_continuous(breaks = lables_y)+ # Why doesn't it work?
-    guides(y = "axis_truncated")
+    # guides(y = "axis_truncated")
+    guides(y = guide_axis_truncated())
 
   # 2.add abline
 
