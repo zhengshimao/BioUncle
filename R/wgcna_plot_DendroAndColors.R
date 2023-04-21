@@ -22,6 +22,7 @@
 #' @importFrom ggplot2 geom_vline
 #' @importFrom ggplot2 geom_segment
 #' @importFrom ggtree gheatmap
+#' @importFrom ggtree ggtree
 #' @importFrom ggplot2 scale_fill_identity
 #' @importFrom ggh4x guide_axis_truncated
 #' @export
