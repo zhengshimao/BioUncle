@@ -46,5 +46,5 @@ A ggtree object.
 }
 \description{
 Plot dendrogram and mudule colors using ggtree. This function is similar to WGCNA::plotDendroAndColors() and
-it origined from \code{ggtreeDendro::plot_wgcna()}.
+It origines from \code{ggtreeDendro::plot_wgcna()}.
 }

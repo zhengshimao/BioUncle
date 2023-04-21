@@ -16,11 +16,15 @@
 #' @param group_labels_position Position of `group_labels`. "left" or "right".
 #'
 #' @return A ggtree object.
+#'
+#' @importFrom ggplot2 aes
 #' @importFrom ggplot2 labs
 #' @importFrom ggplot2 theme
 #' @importFrom ggplot2 guides
 #' @importFrom ggplot2 geom_vline
 #' @importFrom ggplot2 geom_segment
+#' @importFrom ggplot2 element_text
+#' @importFrom ggplot2 element_line
 #' @importFrom ggtree gheatmap
 #' @importFrom ggtree ggtree
 #' @importFrom ggplot2 scale_fill_identity
